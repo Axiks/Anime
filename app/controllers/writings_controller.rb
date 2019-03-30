@@ -24,7 +24,7 @@ class WritingsController < ApplicationController
   # POST /writings
   # POST /writings.json
   def create
-    @writing = Writing.new(writing_params)
+    @writing = Writing.new(writing_params.permit!)
 
     respond_to do |format|
       if @writing.save
