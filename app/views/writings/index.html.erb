@@ -12,6 +12,7 @@
   <tbody>
     <% @writings.each do |writing| %>
       <tr>
+        <td><%= writing.name_ua %></td>
         <td><%= link_to 'Show', writing %></td>
         <td><%= link_to 'Edit', edit_writing_path(writing) %></td>
         <td><%= link_to 'Destroy', writing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

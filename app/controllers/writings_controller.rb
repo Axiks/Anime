@@ -42,7 +42,7 @@ class WritingsController < ApplicationController
   # PATCH/PUT /writings/1.json
   def update
     respond_to do |format|
-      if @writing.update(writing_params)
+      if @writing.update(writing_params.permit!)
         format.html { redirect_to @writing, notice: 'Writing was successfully updated.' }
         format.json { render :show, status: :ok, location: @writing }
       else
