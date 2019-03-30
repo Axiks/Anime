@@ -1,4 +1,29 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Ім'я:</strong>
+  <%= @writing.name_ua %>
+</p>
+
+<p>
+  <strong>Опис:</strong>
+  <%= @writing.description_ua %>
+</p>
+
+<p>
+  <strong>Жанр:</strong>
+  <%= @writing.genre %>
+</p>
+
+<p>
+  <strong>Кылькысть серій:</strong>
+  <%= @writing.series_count %>
+</p>
+
+<p>
+  <strong>Дата виходу:</strong>
+  <%= @writing.release_date %>
+</p>
+
 <%= link_to 'Edit', edit_writing_path(@writing) %> |
 <%= link_to 'Back', writings_path %>

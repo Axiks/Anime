@@ -10,6 +10,7 @@ class WritingsController < ApplicationController
   # GET /writings/1
   # GET /writings/1.json
   def show
+    @writing = Writing.find(params[:id])
   end
 
   # GET /writings/new
