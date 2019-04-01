@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <ul>
+      <li>
+        <% if user_signed_in? %>
+          <a href="<%= new_user_session_path %>"></a>
+          <%= link_to "Вихід", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Вхід", new_user_session_path %>
+          <%= link_to "Реєстрація", new_user_registration_path %>
+        <% end %>
+      </li>
+    </ul>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
