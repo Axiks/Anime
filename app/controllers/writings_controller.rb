@@ -4,6 +4,7 @@ class WritingsController < ApplicationController
   # GET /writings
   # GET /writings.json
   def index
+    @animes = ShikiAPI.search('No game no life')
     @writings = Writing.all
   end
 
