@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Searches</h1>
+
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <body>
+    <%= form_tag("/searches", method: "get") do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
+    <% @searches.each do |search| %>
+      <tr>
+        <img src="https://shikimori.org<%= search['image']['original'] %>">
+        <td><b>Name:</b> <%= search['name'] %></td>
+        <td><b>Name ru:</b> <%= search['russian'] %></td>
+        <td><b>Id:</b> <%= search['id'] %></td>
+        <td><b>Кількість серій:</b> <%= search['episodes'] %></td>
+        <td><b>Дата виходу 1-шої серії:</b> <%= search['aired_on'] %></td>
+        <td><b>Вихід останньої серії:</b> <%= search['released_on'] %></td>
+      </tr>
+    </br>
+    <% end %>
+  </body>
+
+<br>
+
+<%= link_to 'New Search', new_search_path %>
