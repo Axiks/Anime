@@ -9,6 +9,7 @@
   </thead>
 
   <body>
+    <p>Test: <%= @searchesDB[0]['id'] %> </p>
     <%= form_tag("/searches", method: "get") do %>
       <%= label_tag(:q, "Search for:") %>
       <%= text_field_tag(:q) %>

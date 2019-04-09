@@ -5,8 +5,14 @@ class SearchesController < ApplicationController
   # GET /searches.json
   def index
     #@searches = Search.all
-    @search = params[:q]
-    @searches = ShikiAPI.search(@search)
+    @test = Writing.new
+    if(params[:q] == nil)
+      @search = " "
+    else
+      @search = params[:q]
+    end
+    @searches = @test.search(@search)
+    @searchesDB = @test.searchDB(@search)
   end
 
   # GET /searches/1
