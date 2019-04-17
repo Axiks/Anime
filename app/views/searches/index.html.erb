@@ -9,6 +9,7 @@
   </thead>
 
   <body>
+    
     <p>Test: <%= @searchesDB[0]['id'] %> </p>
     <%= form_tag("/searches", method: "get") do %>
       <%= label_tag(:q, "Search for:") %>
@@ -16,6 +17,20 @@
       <%= submit_tag("Search") %>
     <% end %>
 
+<!--
+    <h3>Site DB</h3>
+    <% @searchesDB.each do |search| %>
+      <tr>
+        <td><b>Name:</b> <%= search['name_en'] %></td>
+        <td><b>Id:</b> <%= search['id'] %></td>
+        <td><b>Опис:</b> <%= search[':description_ru'] %></td>
+        <td><b>Дата виходу усіх серії:</b> <%= search['release_date'] %></td>
+      </tr>
+    </br>
+    <% end %>
+  -->
+
+    <h3>ShikiDB</h3>
     <% @searches.each do |search| %>
       <tr>
         <img src="https://shikimori.org<%= search['image']['original'] %>">
