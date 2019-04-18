@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_082713) do
+ActiveRecord::Schema.define(version: 2019_04_18_091946) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "name_ua"
@@ -32,6 +39,15 @@ ActiveRecord::Schema.define(version: 2019_04_18_082713) do
     t.integer "writing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "topic_comments", force: :cascade do |t|
+    t.integer "topic_id"
+    t.integer "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_topic_comments_on_comment_id"
+    t.index ["topic_id"], name: "index_topic_comments_on_topic_id"
   end
 
   create_table "topic_writings", force: :cascade do |t|

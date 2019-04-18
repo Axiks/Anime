@@ -11,13 +11,15 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
-    @topics = Topic.find(params[:id])
-    #@data = topic.anime(params[:id])
+    @writings = Topic.find(params[:id]).writings
+    @comments = Topic.find(params[:id]).comments
   end
 
   # GET /topics/new
   def new
     @topic = Topic.new
+    @comment = Comment.new
+
   end
 
   # GET /topics/1/edit

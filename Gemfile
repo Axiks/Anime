@@ -3,8 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.0'
 
+#ShikimoryAPI
+gem 'ShikiAPI', '~> 0.1'
+#JSON Encode
 gem 'httparty'
-gem "ShikiAPI", :path => "../ShikiAPI/ShikiAPI/"
+#Local ShikiAPI
+#gem "ShikiAPI", :path => "../ShikiAPI/ShikiAPI/"
 #Image
 gem 'carrierwave', '~> 1.0'
 #Device
