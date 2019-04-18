@@ -1,4 +1,7 @@
 class Writing < ApplicationRecord
+	has_many :topic_writings
+	has_many :topics, through: :topic_writings
+
 	def search(title)
 	    ShikiAPI.search(title)
 	end

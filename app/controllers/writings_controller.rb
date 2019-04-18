@@ -11,6 +11,7 @@ class WritingsController < ApplicationController
   # GET /writings/1.json
   def show
     @writing = Writing.find(params[:id])
+    @topics = Writing.find(params[:id]).topics
   end
 
   # GET /writings/new

@@ -1,30 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<img src="https://shikimori.org<%= @writing.shikimory_img %>">
-
-<p>
-  <strong>Ім'я:</strong>
-  <%= @writing.name_en %>
-</p>
-
-<p>
-  <strong>Опис:</strong>
-  <%= @writing.description_ru %>
-</p>
-
-<p>
-  <strong>Кількість серій:</strong>
-  <%= @writing.series_count %>
-</p>
-
-<p>
-  <strong>Дата виходу:</strong>
-  <%= @writing.release_date %>
-</p>
-
-<%= link_to 'Edit', edit_writing_path(@writing) %> |
-<%= link_to 'Create Topic', new_topic_path(:writing_id => @writing.id) %>
-
 <h1>Topics</h1>
 
 <table>
@@ -50,3 +25,7 @@
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New Topic', new_topic_path %>

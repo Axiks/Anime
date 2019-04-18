@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_01_214907) do
+ActiveRecord::Schema.define(version: 2019_04_18_082713) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name_ua"
@@ -23,6 +23,30 @@ ActiveRecord::Schema.define(version: 2019_04_01_214907) do
   create_table "posts", force: :cascade do |t|
     t.string "description"
     t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relations", force: :cascade do |t|
+    t.integer "topic_id"
+    t.integer "writing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topic_writings", force: :cascade do |t|
+    t.integer "topic_id"
+    t.integer "writing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_topic_writings_on_topic_id"
+    t.index ["writing_id"], name: "index_topic_writings_on_writing_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "creator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
