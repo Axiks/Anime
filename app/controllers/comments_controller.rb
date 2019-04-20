@@ -19,6 +19,9 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    #It is Omega Costyl!!!!!!!
+    @topic = Topic.new
+    @topic.id = 0
   end
 
   # POST /comments
@@ -34,7 +37,9 @@ class CommentsController < ApplicationController
       if @comment.save
         TopicComment.create(topic: Topic.find(params['topic_id']), comment: @comment)
 
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html do
+          redirect_back(fallback_location: root_path)
+        end
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -48,7 +53,9 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html do
+          redirect_back(fallback_location: root_path)
+        end
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -62,7 +69,9 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html do
+        redirect_back(fallback_location: root_path)
+      end
       format.json { head :no_content }
     end
   end

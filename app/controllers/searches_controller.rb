@@ -4,15 +4,12 @@ class SearchesController < ApplicationController
   # GET /searches
   # GET /searches.json
   def index
-    #@searches = Search.all
-    @test = Writing.new
-    if(params[:q] == nil)
-      @search = " "
+    @wriring = Writing.new
+    if(params[:q])
+      @searchesDB = @wriring.searchDB(params[:q])
     else
-      @search = params[:q]
+      @searchesDB = []
     end
-    @searches = @test.search(@search)
-    @searchesDB = @test.searchDB(@search)
   end
 
   # GET /searches/1

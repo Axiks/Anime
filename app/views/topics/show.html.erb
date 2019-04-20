@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<!-- Topic block -->
 <table>
+  <h2>Список того що тут обговорюється:</h2>
   <thead>
     <tr>
       <th colspan="3"></th>
@@ -10,51 +12,49 @@
   <tbody>
     <% @writings.each do |writing| %>
       <tr>
-        <td><%= writing.name_en %></td>
-        <td><%= link_to 'Show', writing %></td>
+        <td><%= link_to writing.name_en, writing %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Назва:</strong>
   <%= @topic.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Текст:</strong>
   <%= @topic.description %>
 </p>
 
 <p>
-  <strong>Creator:</strong>
-  <%= @topic.creator %>
+  <strong>Засновник:</strong>
+  <%= User.find(@topic.creator).email %>
 </p>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<%= link_to 'Edit topic', edit_topic_path(@topic) %> |
+<%= link_to 'Destroy topic', topic_path(@topic), method: :delete, data: { confirm: 'Are you sure?' } %> 
 
+<!-- Comments block -->
 <h2>Comments</h2>
-<%= link_to 'Create Comments', new_comment_path(:topic_id => @topic.id) %>
-
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.body %></td>
       </tr>
       <tr>
-        <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+        <tr>
+      <td><hr></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<h1>New Comment</h1>
+
+<%= render 'comments/form', comment: @comment %>

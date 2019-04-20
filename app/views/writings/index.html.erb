@@ -10,11 +10,11 @@
   </thead>
 
   <tbody>
-    <%= link_to "Search",  searches_path %> 
+    <h4><%= link_to "Search",  searches_path %></h4>
     <% @writings.each do |writing| %>
       <tr>
-        <td><%= writing.name_en %></td>
-        <td><%= link_to 'Show', writing %></td>
+        <!-- Вбивця браузерів <td><img src="https://shikimori.org<%= writing.shikimory_img %>"></td> -->
+        <td><%= link_to writing.name_en, writing%></td>
         <td><%= link_to 'Edit', edit_writing_path(writing) %></td>
         <td><%= link_to 'Destroy', writing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

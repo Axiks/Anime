@@ -13,6 +13,7 @@ class TopicsController < ApplicationController
   def show
     @writings = Topic.find(params[:id]).writings
     @comments = Topic.find(params[:id]).comments
+    @comment  = Comment.new()
   end
 
   # GET /topics/new

@@ -1,5 +1,5 @@
 <%= form_with(model: comment, local: true) do |form| %>
-  <%= hidden_field_tag 'topic_id', params['topic_id'] %>
+  <%= hidden_field_tag 'topic_id', @topic.id %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -13,8 +13,8 @@
   <% end %>
 
    <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
+    <%= form.label :body, 'Напиши комент' %>
+    <%= form.text_area :body %>
   </div>
 
   <div class="actions">

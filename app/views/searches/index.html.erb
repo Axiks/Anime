@@ -9,34 +9,21 @@
   </thead>
 
   <body>
-    
-    <p>Test: <%= @searchesDB[0]['id'] %> </p>
     <%= form_tag("/searches", method: "get") do %>
       <%= label_tag(:q, "Search for:") %>
       <%= text_field_tag(:q) %>
       <%= submit_tag("Search") %>
     <% end %>
 
-<!--
-    <h3>Site DB</h3>
+    <h3>ShikiDB</h3>
+    <h4>Результатів: <i><%= @searchesDB.count %></i></h4>
     <% @searchesDB.each do |search| %>
       <tr>
-        <td><b>Name:</b> <%= search['name_en'] %></td>
-        <td><b>Id:</b> <%= search['id'] %></td>
-        <td><b>Опис:</b> <%= search[':description_ru'] %></td>
-        <td><b>Дата виходу усіх серії:</b> <%= search['release_date'] %></td>
-      </tr>
-    </br>
-    <% end %>
-  -->
-
-    <h3>ShikiDB</h3>
-    <% @searches.each do |search| %>
-      <tr>
         <img src="https://shikimori.org<%= search['image']['original'] %>">
+        <td><b>Src:</b> <%= search['updated_at'] %></td>
         <td><b>Name:</b> <%= search['name'] %></td>
         <td><b>Name ru:</b> <%= search['russian'] %></td>
-        <td><b>Id:</b> <%= search['id'] %></td>
+        <td><b>Id:</b> <%= search['shikimoryId'] %></td>
         <td><b>Кількість серій:</b> <%= search['episodes'] %></td>
         <td><b>Дата виходу 1-шої серії:</b> <%= search['aired_on'] %></td>
         <td><b>Вихід останньої серії:</b> <%= search['released_on'] %></td>
