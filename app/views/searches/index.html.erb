@@ -20,8 +20,7 @@
     <% @searchesDB.each do |search| %>
       <tr>
         <img src="https://shikimori.org<%= search['image']['original'] %>">
-        <td><b>Src:</b> <%= search['updated_at'] %></td>
-        <td><b>Name:</b> <%= search['name'] %></td>
+        <td><b>Name:</b> <%= link_to search['name'], controller: "writings", action: "show", id: Writing.where(shikimoryId: search['id']).first.id %></td>
         <td><b>Name ru:</b> <%= search['russian'] %></td>
         <td><b>Id:</b> <%= search['shikimoryId'] %></td>
         <td><b>Кількість серій:</b> <%= search['episodes'] %></td>
