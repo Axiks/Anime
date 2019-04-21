@@ -11,6 +11,8 @@ gem 'httparty'
 #gem "ShikiAPI", :path => "../ShikiAPI/ShikiAPI/"
 #Image
 gem 'carrierwave', '~> 1.0'
+#Resize Img
+gem "mini_magick"
 #Device
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
