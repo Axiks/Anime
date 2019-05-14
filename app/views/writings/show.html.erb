@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<img src="https://shikimori.org<%= @writing.shikimory_img %>">
+
+<p>
+  <strong>Ім'я:</strong>
+  <%= @writing.name_en %>
+</p>
+
+<p>
+  <strong>Опис:</strong>
+  <%= @writing.description_ua %>
+</p>
+
+<p>
+  <strong>Кількість серій:</strong>
+  <%= @writing.series_count %>
+</p>
+
+<p>
+  <strong>Дата виходу:</strong>
+  <%= @writing.release_date %>
+</p>
+
+<p>
+  <strong><a href="https://myanimelist.net/anime/<%= @writing.shikimoryId %>" target="_blank">Go MyAnimeList.org</a></strong>
+</p>
+<p>
+  <strong><a href="https://shikimori.org/animes/<%= @writing.shikimoryId %>" target="_blank">Go Шікіморі</a></strong>
+</p>
+
+<%= link_to 'Edit Title', edit_writing_path(@writing) %>
+
+<h1>Topics</h1>
+<%= link_to 'Create Topic', new_topic_path(:writing_id => @writing.id) %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Creator</th>
+      <th>Кількість коментів</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><%= link_to topic.name , topic %></td>
+        <td><%= topic.description %></td>
+        <td><%= User.find(topic.creator).email %></td>
+        <td><%= Topic.new.comments_count(topic.id) %></td>
+        <td><%= link_to 'Show', topic %></td>
+        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
+        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

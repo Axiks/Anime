@@ -1,0 +1,42 @@
+<%= form_with(model: writing, local: true) do |form| %>
+  <% if writing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(writing.errors.count, "error") %> prohibited this writing from being saved:</h2>
+
+      <ul>
+      <% writing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name_ua %><br>
+    <%= form.text_field :name_ua %>
+  </p>
+
+  <p>
+    <%= form.label :name_en %><br>
+    <%= form.text_field :name_en %>
+  </p>
+
+  <p>
+    <%= form.label :description_ua %><br>
+    <%= form.text_area :description_ua %>
+  </p>
+
+  <p>
+    <%= form.label :series_count %><br>
+    <%= form.text_field :series_count %>
+  </p>
+
+  <p>
+    <%= form.label :release_date %><br>
+    <%= form.text_field :release_date %>
+  </p>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

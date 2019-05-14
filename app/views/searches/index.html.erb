@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Searches</h1>
+
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+ 
+
+    <h3>ShikiDB</h3>
+    <h4>Результатів: <i><%= @searchesDB.count %></i></h4>
+    <% @searchesDB.each do |search| %>
+      <tr>
+        <img src="https://shikimori.org<%= search['image']['original'] %>">
+        <td><b>Name:</b> <%= link_to search['name'], controller: "writings", action: "show", id: Writing.where(shikimoryId: search['id']).first.id %></td>
+        <td><b>Name ru:</b> <%= search['russian'] %></td>
+        <td><b>Id:</b> <%= search['shikimoryId'] %></td>
+        <td><b>Кількість серій:</b> <%= search['episodes'] %></td>
+        <td><b>Дата виходу 1-шої серії:</b> <%= search['aired_on'] %></td>
+        <td><b>Вихід останньої серії:</b> <%= search['released_on'] %></td>
+      </tr>
+    </br>
+    <% end %>
+  </body>
+
+<br>
+
+<%= link_to 'New Search', new_search_path %>

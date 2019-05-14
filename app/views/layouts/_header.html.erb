@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag    'header', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="head">
+<div class="navbar navbar-expand-sm navbar-dark">
+    <a class="navbar-brand" href="/">
+      <img src="/images/18.png" width="125" height="60">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbar1">
+      <ul class="navbar-nav mr-auto">
+       
+          <div class="search">
+          <%= form_tag("/searches", method: "get") do %>
+          <input type="text" name="q" id="q"  placeholder="Search..." />
+         
+          <% end %>
+            
+          </div>
+     
+      
+         <li><a href="/users/sign_up">Реєстрація</a></li>
+         <li><a href="/users/sign_in">Вхід</a></li>
+         <li><a href="/users/sign_out">Вихід</a></li>
+       
+      </ul>
+
+    </div>
+</div>
+
+</div>
+
