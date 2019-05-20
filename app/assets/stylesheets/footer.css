@@ -1,0 +1,26 @@
+.footer{
+  font-size: 12px;
+  padding-top: 30px;
+}
+.f{
+    padding-left: 0;
+  }
+.foo{
+      position:relative; 
+      left: 20%;
+      font-family: "Arial";
+      display: inline;
+      padding-right: 15px;
+      color: #2e3951;
+      letter-spacing: 1px;
+    }
+  
+.foo1{
+      position:relative; 
+      left: 20%;
+      display: inline;
+      padding-right: 15px;
+      color: #1c2331;
+      font-family: "Arial";
+      letter-spacing: 1px;
+}
