@@ -17,6 +17,7 @@
 }
 
 .search{
+  font-family: "Arial";
 	margin: auto;
 	position:relative; 
     left:200px;
@@ -63,7 +64,7 @@ input:focus::-webkit-input-placeholder
 
 li {
    position:relative; 
-   left: 60%;
+   left: 120%;
 }
 
 li a {

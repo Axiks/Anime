@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag    'header', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="head">
 <div class="navbar navbar-expand-sm navbar-dark">
@@ -15,11 +16,23 @@
           <% end %>
             
           </div>
-     
-      
-         <li><a href="/users/sign_up">Реєстрація</a></li>
-         <li><a href="/users/sign_in">Вхід</a></li>
-         <li><a href="/users/sign_out">Вихід</a></li>
+
+         <% if user_signed_in? %>
+          <li><a href="<%= user_path(current_user)%>">
+            <i class="fas fa-user"></i>
+          </a></li>
+        <% else %>
+          <li><a href="<%= new_user_session_path%>">
+            <i class="fas fa-sign-in-alt"></i>
+          </a></li>
+        <% end %>
+
+          <li><a href="<%= destroy_user_session_path%>">
+            <i class="fas fa-sign-out-alt"></i>
+          </a></li>
+   
+
+        
        
       </ul>
 
