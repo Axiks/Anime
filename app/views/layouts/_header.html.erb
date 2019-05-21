@@ -11,7 +11,7 @@
        
           <div class="search">
           <%= form_tag("/searches", method: "get") do %>
-          <input type="text" name="q" id="q"  placeholder="Search..." />
+          <input type="text" name="q" id="q"  placeholder="Пошук.." />
          
           <% end %>
             
@@ -23,12 +23,12 @@
           </a></li>
         <% else %>
           <li><a href="<%= new_user_session_path%>">
-            <i class="fas fa-sign-in-alt"></i>
+            <i class="fas fa-sign-in-alt">Вхід</i>
           </a></li>
         <% end %>
 
           <li><a href="<%= destroy_user_session_path%>">
-            <i class="fas fa-sign-out-alt"></i>
+            <i class="fas fa-sign-out-alt">Вихід</i>
           </a></li>
    
 

@@ -57,14 +57,16 @@ input::placeholder{
 
 input:focus::-webkit-input-placeholder
 {
-    opacity: 0; 
+  opacity: 0; 
 	transition: opacity 0.3s ease;
 }
 
 
 li {
    position:relative; 
-   left: 120%;
+   margin: auto;
+   left: 75%;
+
 }
 
 li a {
@@ -75,7 +77,8 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-   display: block;
+  display: block;
+
 }
 
 li a:hover {
@@ -84,3 +87,8 @@ li a:hover {
   text-decoration: none;
 }
 
+li a i{
+  letter-spacing: 2px;
+  font-family: "Arial";
+  font-size: 17px;
+}

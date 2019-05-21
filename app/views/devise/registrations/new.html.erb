@@ -9,22 +9,23 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <div class="label1">
-    <label for="user_email">Email:</label></br></div>
+    
+    <div class="lab"><label for="user_email">Пошта:</label></div>
     <input autofocus="autofocus" autocomplete="email" type="email" value name="user[email]" id="user_email">
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+   <div class="lab"><label for="user_password">Пароль:</label></div>
+   <div class="lab"><em>(6 символів мінімум)</em></div>
+   
+   <input autocomplete="new-password" type="password" name="user[password]" id="user_password">
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <div class="lab"><label for="user_password_confirmation">Підтвердження паролю:</label></div>
+    
+    <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+  
   </div>
 
   <input type="submit" value="Sign Up" id="submit">
@@ -32,6 +33,7 @@
 <% end %>
 </div>
 
-<%= render "devise/shared/links" %>
+<div class="login"><a href="/users/sign_in">Log In</a></div>
+<div class="instruction"><a href="/users/unlock/new">Didn't receive unlock instructions?</a></div>
 </div>
 </div>

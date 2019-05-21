@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+  root to: 'home#index'
   resources :comments
   resources :topics
   devise_for :users
