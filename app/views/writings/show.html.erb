@@ -51,10 +51,27 @@
         <td><%= topic.description %></td>
         <td><%= User.find(topic.creator).email %></td>
         <td><%= Topic.new.comments_count(topic.id) %></td>
-        <td><%= link_to 'Show', topic %></td>
+        <!-- <td><%= link_to 'Show', topic %></td>
         <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
+    <h2>Gallery</h2>
+
+      <%= form_with(url:add_image_path, local: true ) do |form| %>
+
+        <div class="field">
+          <%= form.label "Art"%>
+          <%= form.file_field :images %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit "Завантажити" %>
+        </div>
+      <% end %>
+
+<%   @writing.images.each do |x| %>
+  <%= image_tag x %>
+<%end%>

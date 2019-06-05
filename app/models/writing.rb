@@ -1,6 +1,7 @@
 class Writing < ApplicationRecord
 	has_many :topic_writings
 	has_many :topics, through: :topic_writings
+	has_many_attached :images
 
 	def search(title)
 	    ShikiAPI.search(title)

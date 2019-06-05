@@ -39,6 +39,12 @@ class WritingsController < ApplicationController
     end
   end
 
+  def add_image
+      @writing = Writing.find(params[:id])
+      @writing.images.attach(params[:images])
+      redirect_to @writing
+  end
+
   # PATCH/PUT /writings/1
   # PATCH/PUT /writings/1.json
   def update
@@ -72,5 +78,9 @@ class WritingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def writing_params
       params.fetch(:writing, {})
+    end
+
+    def img_params
+      params.require(:writing).permit(images: [])
     end
 end
