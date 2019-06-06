@@ -14,6 +14,9 @@
     <% @writings.each do |writing| %>
       <tr>
         <!-- Вбивця браузерів <td><img src="https://shikimori.org<%= writing.shikimory_img %>"></td> -->
+        <% if writing.avatar.attached? %>
+          <td><%= image_tag writing.avatar %></td>
+        <% end %>
         <td><%= link_to writing.name_en, writing%></td>
         <td><%= link_to 'Edit', edit_writing_path(writing) %></td>
         <td><%= link_to 'Destroy', writing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

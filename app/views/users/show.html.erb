@@ -1,0 +1,15 @@
+<% if @user.name %>
+	<p><b>Name: </b><%= @user.name%></p>
+ <% end %>
+ <% if @user.surname %>
+	<p><b>Surname: </b><%= @user.surname%></p>
+ <% end %>
+ <% if @user.name %>
+<!-- <p><b>Age: </b><%= @user.birthday %></p> -->
+	<p><b>City: </b><%= @user.city%></p>
+ <% end %>
+
+<p><b>Email: </b><%= @user.email%></p>
+<% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar %>
+ <% end %>

@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class WritingsController < ApplicationController
   before_action :set_writing, only: [:show, :edit, :update, :destroy]
 
@@ -12,6 +14,12 @@ class WritingsController < ApplicationController
   def show
     @writing = Writing.find(params[:id])
     @topics = Writing.find(params[:id]).topics
+
+    if @writing.avatar.attached?
+    else
+      downloaded_image = open("https://shikimori.org" + @writing.shikimory_img)
+      @writing.avatar.attach(io: downloaded_image  , filename: "avatar.jpg")
+    end
   end
 
   # GET /writings/new

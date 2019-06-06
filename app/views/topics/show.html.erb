@@ -30,7 +30,11 @@
 
 <p>
   <strong>Засновник:</strong>
-  <%= User.find(@topic.creator).email %>
+  <% if User.find(@topic.creator).name %>
+    <%= link_to User.find(@topic.creator).name, user_profile_path(User.find(@topic.creator).id) %>
+  <% else %>
+    <%= link_to User.find(@topic.creator).email, user_profile_path(User.find(@topic.creator).id) %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit topic', edit_topic_path(@topic) %> |
