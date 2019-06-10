@@ -12,7 +12,8 @@
   <tbody>
     <% @writings.each do |writing| %>
       <tr>
-        <td><%= link_to writing.name_en, writing %></td>
+      <td><%= image_tag writing.avatar %></td>
+      <td><%= link_to writing.name_en, writing %></td>
       </tr>
     <% end %>
   </tbody>

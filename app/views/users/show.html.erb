@@ -13,3 +13,8 @@
 <% if @user.avatar.attached? %>
     <%= image_tag @user.avatar %>
  <% end %>
+
+ <% if @user.id == current_user.id %>
+ 	<%= link_to 'Settings', edit_user_registration_path %>
+ <% end %>
+

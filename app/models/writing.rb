@@ -1,6 +1,7 @@
 class Writing < ApplicationRecord
 	has_many :topic_writings
 	has_many :topics, through: :topic_writings
+	
 	has_one_attached :avatar
 	has_many_attached :images
 

@@ -1,0 +1,22 @@
+<h1>All Topics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><%= link_to topic.name, topic %></td>
+        <td><%= topic.description %></td>
+        <td><%= User.find(topic.creator).email %></td>
+        <td><%= topic.created_at %></td>
+        <td><%= topic.writings.first.name_en %></td>
+        <td><%= topic.writings.first.description_en %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
