@@ -1,37 +1,84 @@
-<p id="notice"><%= notice %></p>
-<% if user_signed_in? %>
-    <%= link_to 'Мій профіль', user_profile_path(current_user.id) %>
-  <% end %>
 
-<%= link_to 'Усі топіки', topics_path %>
+ <!-- <h1>Writings</h1> -->
 
-<h1>Writings</h1>
+  <div class="row">
+    <div class="col">
+        <!-- <h4><%= link_to "Search",  searches_path %></h4> -->
+        <p><%= link_to 'New Writing', new_writing_path %></p>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="row pb-3">
+    <div class="col">
+      <div class="bd-example">
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/11166e5a-2d5c-42d7-9b3e-1d30eabb6f53/d9mh7y9-86c613b3-755b-497b-be6e-cd6ab8a22258.jpg/v1/fill/w_1024,h_487,q_75,strp/bg_anime__1_by_dickywardhana_d9mh7y9-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDg3IiwicGF0aCI6IlwvZlwvMTExNjZlNWEtMmQ1Yy00MmQ3LTliM2UtMWQzMGVhYmI2ZjUzXC9kOW1oN3k5LTg2YzYxM2IzLTc1NWItNDk3Yi1iZTZlLWNkNmFiOGEyMjI1OC5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.cAk8iDkb-h-MK4tUVL3wft7eazxQvkozl772ajV8_Wc" class="active d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://get-animes.com/images/anime/bg.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://getbg.net/upload/full/www.GetBg.net_Anime_Anime_Girl_catches_letter_from_the_book_109513_.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
 
-  <tbody>
-    <h4><%= link_to "Search",  searches_path %></h4>
-    <% @writings.each do |writing| %>
-      <tr>
-        <% if writing.avatar.attached? %>
-          <td><%= image_tag writing.avatar %></td>
-          <% else %>
-           <!-- Вбивця браузерів (Після фікса -> пачті) -->
-           <td><img src="https://shikimori.org<%= writing.shikimory_img %>"></td> 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card-columns">
+
+        <% @writings.each do |writing| %>
+
+          <div class="card">
+            <% if writing.avatar.attached? %>
+              <%= image_tag writing.avatar, class:"card-img-top" %>
+            <% else %>
+              <img src="https://shikimori.org<%= writing.shikimory_img %>" class="card-img-top">
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to writing.name_en, writing %></h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"><%= link_to 'Edit', edit_writing_path(writing) %></small>
+              <small class="text-muted"><%= link_to 'Destroy', writing, method: :delete, data: { confirm: 'Are you sure?' } %></small>
+            </div>
+          </div>
+
         <% end %>
-        <td><%= link_to writing.name_en, writing%></td>
-        <td><%= link_to 'Edit', edit_writing_path(writing) %></td>
-        <td><%= link_to 'Destroy', writing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'New Writing', new_writing_path %>
