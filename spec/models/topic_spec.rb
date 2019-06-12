@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Topic, type: :model do
-  let!(:user){create(:user)}
 
-  subject{
-     build(:topic, user: user)
+    subject{
+     build(:topic)
   }
   
   context "validation" do
@@ -12,4 +11,5 @@ RSpec.describe Topic, type: :model do
       expect(subject).to be_valid
     end
   end
+
 end
