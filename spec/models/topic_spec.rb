@@ -11,5 +11,12 @@ RSpec.describe Topic, type: :model do
       expect(subject).to be_valid
     end
   end
+  context "associations" do
+    it {should have_many(:topic_writings)}
+    it {should have_many(:writings)}
+
+    it {should have_many(:topic_comments)}
+    it {should have_many(:comments)}
+  end
 
 end

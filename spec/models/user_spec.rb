@@ -11,4 +11,10 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'upload avatar' do
+  subject { create(:user).avatar }
+
+  it { is_expected.to be_an_instance_of(ActiveStorage::Attached::One) }
+end
+
 end
