@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'header', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="head">
+<div class="navbar navbar-expand-sm navbar-dark">
+    <a class="navbar-brand" href="/">
+      <img src="/images/18.png" width="125" height="60">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbar1">
+      <ul class="navbar-nav mr-auto">
+       
+          <div class="search">
+          <%= form_tag("/searches", method: "get") do %>
+          <input type="text" name="q" id="q"  placeholder="Пошук.." />
+         
+          <% end %>
+            
+          </div>
+
+         <% if user_signed_in? %>
+          <li><a href="<%= user_profile_path(current_user.id)%>">
+            <i class="fas fa-user"></i>
+          </a></li>
+          <li><a rel="nofollow" data-method="delete" href="/users/sign_out"><i class="fas fa-sign-out-alt">Вихід</i></a></li>
+        
+        <% else %>
+          <li><a href="<%= new_user_session_path%>">
+            <i class="fas fa-sign-in-alt">Вхід</i>
+          </a></li>
+          <li><a href="<%= new_user_registration_path%>">
+            <i class="fas fa-sign-in-alt">Реєстрація</i>
+          </a></li>
+        <% end %>
+
+          
+   
+
+        
+       
+      </ul>
+
+    </div>
+</div>
+
+</div>
+

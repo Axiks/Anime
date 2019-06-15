@@ -1,15 +1,12 @@
 
  <!-- <h1>Writings</h1> -->
 
-  <div class="row">
-    <div class="col">
-        <!-- <h4><%= link_to "Search",  searches_path %></h4> -->
-        <p><%= link_to 'New Writing', new_writing_path %></p>
-    </div>
-  </div>
+<%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'carousel', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-  <div class="row pb-3">
-    <div class="col">
+
+
+  <div class="carousel">
       <div class="bd-example">
       <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -49,13 +46,11 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </div>
-
+       <p><%= link_to 'New Writing', new_writing_path %></p>
     </div>
   </div>
+<div class="carousel">
 
-  <div class="row">
-    <div class="col">
       <div class="card-columns">
 
         <% @writings.each do |writing| %>
@@ -78,7 +73,7 @@
 
         <% end %>
 
-      </div>
     </div>
+ 
   </div>
 
