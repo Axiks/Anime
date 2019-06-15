@@ -5,6 +5,8 @@ ruby '2.4.0'
 #Twiter Bootstrap 4 + jQuery
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+#Awesome font
+gem 'font-awesome-sass', '~> 5.8.1'
 #ShikimoryAPI
 gem 'ShikiAPI', '~> 0.1'
 #JSON Encode
