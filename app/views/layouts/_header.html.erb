@@ -19,7 +19,7 @@
 
          <% if user_signed_in? %>
           <li><a href="<%= user_profile_path(current_user.id)%>">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user"> Профіль</i>
           </a></li>
           <li><a rel="nofollow" data-method="delete" href="/users/sign_out"><i class="fas fa-sign-out-alt">Вихід</i></a></li>
         
