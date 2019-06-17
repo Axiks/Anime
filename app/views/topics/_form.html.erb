@@ -1,3 +1,8 @@
+<%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'topic', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="top">
+
 <%= form_with(model: topic, local: true) do |form| %>
   <%= hidden_field_tag 'writing_id', params['writing_id'] %>
   <% if topic.errors.any? %>
@@ -13,17 +18,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="lab"><label for="topic_name">Назва:</label></div>
+    <input type="text" name="topic[name]" id="topic_name">
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <div class="lab"><label for="topic_description">Текст:</label></div>
+    <textarea type="text" name="topic[description]" id="topic_description"></textarea>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <input type="submit" name="commit" value="Create Topic" data-disable-with="Create Topic">
   </div>
 <% end %>
+</div>

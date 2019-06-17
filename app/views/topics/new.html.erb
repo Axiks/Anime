@@ -1,5 +1,13 @@
-<h1>New Topic</h1>
+<%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'topic', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+<div class="top">
+<div class="topi">
+<div class="h24">New Topic</div>
 
 <%= render 'form', topic: @topic %>
 
-<%= link_to 'Back', topics_path %>
+<div class="link"><%= link_to "Back", :back %></div>
+</div>
+</div>
