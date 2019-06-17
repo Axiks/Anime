@@ -146,3 +146,14 @@ font-size: 23px;
 .comment {
 	padding-top: 50px;
 }
+
+.imge img {
+	margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+	padding-top: 0px;
+	padding-bottom: 10px;
+	width: 100%;
+    max-width: 1100px;
+}
