@@ -1,14 +1,17 @@
+<%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'show', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= image_tag @writing.avatar %>
-<p>
-  <strong>Ім'я:</strong>
+<div class="show">
+<div class="card">
+<div class="img">
+<div class="left"><%= image_tag @writing.avatar %></div>
+ 
+<div class="info">
+  <p>
+  <strong>Назва:</strong>
   <%= @writing.name_en %>
 </p>
 
-<p>
-  <strong>Опис:</strong>
-  <%= @writing.description_ua %>
-</p>
 
 <p>
   <strong>Кількість серій:</strong>
@@ -21,16 +24,27 @@
 </p>
 
 <p>
-  <strong><a href="https://myanimelist.net/anime/<%= @writing.shikimoryId %>" target="_blank">Go MyAnimeList.org</a></strong>
+  <strong><a href="https://myanimelist.net/anime/<%= @writing.shikimoryId %>" target="_blank">MyAnimeList.org</a></strong>
 </p>
 <p>
-  <strong><a href="https://shikimori.org/animes/<%= @writing.shikimoryId %>" target="_blank">Go Шікіморі</a></strong>
+  <strong><a href="https://shikimori.org/animes/<%= @writing.shikimoryId %>" target="_blank">Shikimori</a></strong>
 </p>
 
-<%= link_to 'Edit Title', edit_writing_path(@writing) %>
+</div>
 
-<h1>Topics</h1>
-<%= link_to 'Create Topic', new_topic_path(:writing_id => @writing.id) %>
+</div>
+<div class="writ">
+<p>
+  <strong>Опис:</strong>
+  <%= @writing.description_ua %>
+</p>
+
+
+</div>
+<div class="topic">
+
+<div class="h13">Обговорення</div>
+<div class="topics1"><%= link_to 'Create Topic', new_topic_path(:writing_id => @writing.id) %></div>
 
  <% if @topics.count != 0 %>
 <table>
@@ -63,20 +77,24 @@
   </tbody>
 </table>
 <% end %>
-    <h2>Gallery</h2>
+
+    <div class="gall">Gallery</div>
 
       <%= form_with(url:add_image_path, local: true ) do |form| %>
-
+        <div class="art">
         <div class="field">
-          <%= form.label "Art"%>
+          <%= form.label "Зображення"%>
           <%= form.file_field :images %>
         </div>
-
+        </div>
         <div class="actions">
-          <%= form.submit "Завантажити" %>
+          <input type="submit" name="commit" value="Завантажити" data-disable-with="Завантажити">
         </div>
       <% end %>
 
 <%   @writing.images.each do |x| %>
   <%= image_tag x %>
 <%end%>
+</div>
+</div>
+</div>
