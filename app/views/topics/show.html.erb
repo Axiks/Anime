@@ -1,24 +1,23 @@
-<p id="notice"><%= notice %></p>
-
+<%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'show', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="show">
 <!-- Topic block -->
-<table>
-  <h2>Список того що тут обговорюється:</h2>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="card">
+<div class="h14">Обговорення:</div>
+<div class="img">
 
-  <tbody>
+  
+
+
     <% @writings.each do |writing| %>
-      <tr>
-      <td><%= image_tag writing.avatar %></td>
-      <td><%= link_to writing.name_en, writing %></td>
-      </tr>
+ 
+      <div class="left"><%= image_tag writing.avatar %></div>
+      <div class="info2"><%= link_to writing.name_en, writing %></div>
+      
     <% end %>
-  </tbody>
-</table>
 
+</div>
+<div class="writ">
 <p>
   <strong>Назва:</strong>
   <%= @topic.name %>
@@ -41,6 +40,9 @@
 <%= link_to 'Edit topic', edit_topic_path(@topic) %> |
 <%= link_to 'Destroy topic', topic_path(@topic), method: :delete, data: { confirm: 'Are you sure?' } %> 
 
+
+
+<div class="comment">
 <!-- Comments block -->
 <h2>Comments</h2>
 <table>
@@ -50,7 +52,7 @@
         <td><%= comment.body %></td>
       </tr>
       <tr>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+    
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
         <tr>
@@ -63,3 +65,7 @@
 <h1>New Comment</h1>
 
 <%= render 'comments/form', comment: @comment %>
+</div>
+</div>
+</div>
+</div>
