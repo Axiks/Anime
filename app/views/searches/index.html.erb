@@ -13,12 +13,12 @@
 
          <div class="card-body">
          <p class="card-text">
-          <b>Назва:</b> <%= link_to search['name'], controller: "writings", action: "show", id: Writing.where(shikimoryId: search['id']).first.id %> 
+          Назва: <%= link_to search['name'], controller: "writings", action: "show", id: Writing.where(shikimoryId: search['id']).first.id %> 
           <p><%= search['russian'] %></p>
           <%= search['shikimoryId'] %>
-          <p><b>Кількість серій:</b> <%= search['episodes'] %></p>
-          <p><b>Перша серія:</b> <%= search['aired_on'] %></p>
-          <p><b>Остання серія:</b> <%= search['released_on'] %></p>
+          <p>Кількість серій: <%= search['episodes'] %></p>
+          <p>Перша серія: <%= search['aired_on'] %></p>
+          <p>Остання серія: <%= search['released_on'] %></p>
           </p>
         </div>
      

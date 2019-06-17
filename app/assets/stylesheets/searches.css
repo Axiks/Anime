@@ -11,6 +11,12 @@ max-width: 1100px;
 
 p {
 	color: #929fba;
+	font-family: "Arial";
+	
+}
+
+.card-body{
+	font-family: "Arial";
 }
 
 .card {
