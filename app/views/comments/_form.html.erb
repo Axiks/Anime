@@ -13,11 +13,11 @@
   <% end %>
 
    <div class="field">
-    <%= form.label :body, 'Напиши комент' %>
+    <%= form.label :body, 'Ваш коментар:' %>
     <%= form.text_area :body %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <input type="submit" name="commit" value="Create Comment" data-disable-with="Create Comment">
   </div>
 <% end %>

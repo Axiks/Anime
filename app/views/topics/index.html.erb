@@ -1,4 +1,9 @@
-<h1>All Topics</h1>
+<%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'all-topics', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="all">
+<div class="alltop">
+<div class="h18">All Topics</div>
 
 <table>
   <thead>
@@ -10,8 +15,7 @@
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
-        <td><%= link_to topic.name, topic %></td>
-        <td><%= topic.description %></td>
+        <td><div class="link"><%= link_to topic.name, topic %></div></td>
         <td><%= User.find(topic.creator).email %></td>
         <td><%= topic.created_at %></td>
         <td><%= topic.writings.first.name_en %></td>
@@ -20,3 +24,5 @@
     <% end %>
   </tbody>
 </table>
+</div>
+</div>

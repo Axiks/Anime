@@ -1,0 +1,48 @@
+.all {
+	background: #1c2331;
+	margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	width: 100%;
+    max-width: 1100px;
+}
+
+.alltop {
+	padding-right: 40px;
+	padding-left: 40px;
+
+}
+
+.h18 {
+	font-family: "Arial";
+	margin: 0 0 0 0;
+    padding: 5px;
+    text-align:center;
+    font-size:30px;
+    color: #b1bace;
+    border-bottom:solid 1px #929fba;
+    letter-spacing: 2px;
+    padding-top: 30px;
+}
+
+tr td {
+	font-size: 20px;
+	padding-top: 20px;
+	color: #d0d6e2;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	font-family: "Arial";
+}
+
+.link{
+	padding-left: 20px;
+	font-family: "Arial";
+}
+
+.link a{
+	color: #b1bace;
+	font-size: 20px;
+}

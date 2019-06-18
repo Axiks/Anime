@@ -1,20 +1,45 @@
+<%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'profile', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="profile">
+<div class="prof">
+<div class="card">
+<div class="h5">My Profile</div>
+
+<% if @user.avatar.attached? %>
+<div class="image">
+<div class="im">
+    <%= image_tag @user.avatar %>
+    </div>
+    </div>
+ <% end %>
+
+<div class="card-body">
+    
 <% if @user.name %>
-	<p><b>Name: </b><%= @user.name%></p>
+	<p>Ім'я: <%= @user.name%></p>
  <% end %>
  <% if @user.surname %>
-	<p><b>Surname: </b><%= @user.surname%></p>
+	<p>Прізвище: <%= @user.surname%></p>
  <% end %>
  <% if @user.name %>
-<!-- <p><b>Age: </b><%= @user.birthday %></p> -->
-	<p><b>City: </b><%= @user.city%></p>
+    
+	<p>Місто: <%= @user.city%></p>
  <% end %>
 
-<p><b>Email: </b><%= @user.email%></p>
-<% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar %>
- <% end %>
 
- <% if @user.id == current_user.id %>
- 	<%= link_to 'Settings', edit_user_registration_path %>
+<p>Пошта: <%= @user.email%></p>
+<div class="button">
+<% if @user.id == current_user.id %>
+
+ 	<a href="/users/edit" class="btn btn-primary" role="button">Settings</a>
  <% end %>
+ </div>
+
+</div>
+
+
+ 
+ </div>
+</div>
+</div>
 

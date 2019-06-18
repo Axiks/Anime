@@ -1,0 +1,40 @@
+.carousel {
+margin-right: auto;
+margin-left: auto;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 0px;
+padding-bottom: 35px;
+width: 100%;
+max-width: 1100px;
+}
+
+.card {
+	background: #121721;
+}
+
+.card-body{
+	font-family: "Arial";
+
+}
+
+.link{
+	
+	font-family: "Arial";
+}
+
+.link a{
+	color: #b1bace;
+	font-size: 15px;
+}
+
+.h23 {
+	background-color: #1c2331;
+	width: 50%;
+	border: 2px solid #1c2331;
+    border-radius: 4px;
+    opacity: 0.8;
+    position:relative; 
+   margin: auto;
+   left: 3%;
+}

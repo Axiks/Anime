@@ -4,62 +4,19 @@
     <title>Nya</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('alf.jpg') %>
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/navs' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
 
-  
-  <nav class="navbar navbar-expand-lg" style="background-color = #1c2331">
-    <a class="navbar-brand" href="<%= root_path %>">
-      <img src="/images/18.png" height="60" class="d-inline-block align-top" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li>
-          <%= link_to 'All Topics', topics_path, class: "nav-link" %>
-        </li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Мій профіль', user_profile_path(current_user.id), class: "nav-link" %></li>
-          <li><%= link_to "Вихід", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-        <% else %>
-          <li><%= link_to "Вхід", new_user_session_path, class: "nav-link" %></li>
-          <li><%= link_to "Реєстрація", new_user_registration_path, class: "nav-link"%></li>
-        <% end %>
-
-      </ul>
-    </div>
-      <%= form_tag("/searches", method: "get", class: "form-inline") do %>
-        <%= label_tag(:q, "Search for:") %>
-        <%= text_field_tag(:q, "", class: "form-control mr-sm-2") %>
-        <%= submit_tag("Search", class: "btn btn-outline-success my-2 my-sm-0") %>
-      <% end %>
-  </nav>
-
-    <% if alert %>
-      <p class="alert alert-success alert-dismissible fade show" role="alert">
-      <%= alert %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      </p>
-    <% end %>
-    <% if notice %>
-      <p class="alert alert-success alert-dismissible fade show" role="alert">
-        <%= notice %>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </p>
-      
-    <% end %>
-
-    <div class="container">
-      <%= yield %>
-    </div>
+   
+    
   </body>
 </html>
