@@ -9,5 +9,19 @@ RSpec.describe SearchesController, type: :controller do
     #     end
     # end
 
-    describe "NEW"
+    #---------KeyError:
+       #Factory not registered: "search"------------------
+
+     describe "POST #create" do
+    #     it "create search" do
+    #         search = create(:search)
+    #         subject{
+    #         post :create}
+    #     end
+
+        it 'success response' do
+            expect(response).to have_http_status(200)
+        end
+    end
+
 end

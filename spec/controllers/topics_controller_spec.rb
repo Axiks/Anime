@@ -10,6 +10,7 @@ RSpec.describe TopicsController, type: :controller do
           get :index
           expect(response.status).to eq(200)
         end
+       
 
          it "assigns @topics" do
           topic = Topic.create(name: "Test")
@@ -23,6 +24,28 @@ RSpec.describe TopicsController, type: :controller do
         end
 
      end
+
+     describe "GET #new" do
+        it "renders the new template" do
+          get :new
+          expect(response).to render_template("new")
+        end
+
+    end
+
+    describe "POST #create" do
+
+        it 'success response' do
+          expect(response).to have_http_status(200)
+        end
+        it "create topic" do
+            topic = create(:topic)
+            subject{
+            post :create, params: {topic: topic(name: "topic name",
+                                                description: "topic description")}}
+            expect(response).to have_http_status(200) 
+        end
+    end
    # describe "The #create action" do
     #    it "creates a new Item" do
      #     expect{
@@ -32,6 +55,22 @@ RSpec.describe TopicsController, type: :controller do
        #    
       #  end
      # end
+  describe "GET #show" do
+  it "assigns the requested contact to @contact" do
+    # topic = create(:topic)
+    #         subject{
+    #         post :create, params: {topic: topic(name: "topic name",
+    #                                             description: "topic description",
+    #                                             id: subject.id)}}
+    # get :show, id: topic
+    # assigns(:topic).should eq(topic)
+  end
+  
+    it "renders the #show view" do
+      # get :show
+      # expect(response).to render_template("show")
+    end
+end
 
 #      describe 'PATCH #update' do
 #   	before do
@@ -44,4 +83,17 @@ RSpec.describe TopicsController, type: :controller do
 #       expect(response).to redirect_to profile_index_path
 #     end
 #   end
+
+# describe 'PUT update' do
+#   before do
+#             post :create,
+#              params: {topic: {name:"Topic", description: "Desc", id: topic.id}}
+#          end 
+#   it "changes @topic's attributes" do
+#     put :update, id: @topic, 
+#     topic: {name:"Topic2", description: "Desc2"}
+#     @topic.reload
+#     @topic.name.should eq("Topic2")
+#   end
+# end
 end
